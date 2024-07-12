@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Sidebar from "@/app/components/Sidebar";
+import {
+  ThemeProvider as NextThemesProvider,
+  ThemeProvider,
+} from "next-themes";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-black`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="bg-black container grid grid-cols-12 h-screen text-white">
+            <Sidebar />
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
