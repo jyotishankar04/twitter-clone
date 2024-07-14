@@ -1,28 +1,16 @@
-import Image from "next/image";
-import FeedCard from "./components/Feed/FeedCard";
-import SuggestSignup from "./components/RightBar/SuggestSignup";
+import { NEXT_AUTH } from "@/auth";
+import Appbar from "@/components/ui/Appbar";
+import { getServerSession } from "next-auth";
 
-export default function Home() {
+async function page() {
+  const session = await getServerSession(NEXT_AUTH);
   return (
-    <div className="w-full h-screen  col-span-9 grid grid-cols-12">
-      <div className="col-span-8 border-x overflow-auto no-scrollbar">
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-      </div>
-      <div className="col-span-4   p-2">
-        <div>
-          <SuggestSignup />
-        </div>
-      </div>
+    <div>
+      {JSON.stringify(session)}
+      <h1>Hello, World!</h1>
+      <Appbar />
     </div>
   );
 }
+
+export default page;

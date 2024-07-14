@@ -4,10 +4,10 @@ import Link from "next/link";
 function SuggestSignup() {
   return (
     <Card className="w-full p-3  ">
-      <CardTitle className="text-xl">Please Sign Up</CardTitle>
+      <CardTitle className="text-xl">New to Twitter?</CardTitle>
       <Link href={"/"} className="w-full">
-        <button className="w-full bg-sky-600 hover:bg-sky-700 rounded-full my-4 font-semibold px-5 py-2">
-          Sign Up
+        <button className="w-full bg-gray-50 text-sky-600 hover:text-white hover:bg-sky-700 rounded-full my-4 font-semibold px-5 py-2">
+          Create Account
         </button>
       </Link>
 
